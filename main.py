@@ -8,6 +8,7 @@ def main():
 
         for line in content:
             vect = line
+
     print(vect)
     print(pageRankLinear(None, 0.9, vect))
     print(pageRankPower(None, 0.9, vect))
@@ -26,8 +27,9 @@ OUT : Un vecteur x contenant les scores d’importance des noeuds ordonnés dans
 
 """  
 def pageRankLinear(A, alpha, v):
-    #TODO
-    pass
+    A2 = np.transpose(np.identity(len(A))) - alpha * P
+    B2= (1-alpha)*v
+    return np.linalg.solve(A2, B2)
 
 """
 IN : Une matrice d’adjacence A d’un graphe dirigé, pondéré et régulier G, un vec-
