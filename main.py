@@ -1,15 +1,18 @@
 import numpy as np
+import csv
 
 def main():
-    with open("VecteurPersonnalisation_Groupe18.csv") as data:
-        content = data.read()
-    vect = []
-    for i in content.split(','):
-        vect += [float(i)]
-    vect = np.asarray(vect)
+    
+    with open("Vecteur.csv", 'r') as data:
+        content = csv.reader(data)
+
+        for line in content:
+            vect = line
     print(vect)
     print(pageRankLinear(None, 0.9, vect))
     print(pageRankPower(None, 0.9, vect))
+
+    
 
 
 """
